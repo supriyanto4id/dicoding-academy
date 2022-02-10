@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         if (v?.id ==R.id.btn_calculate){
-            val inputLength =edtLength.text.toString().trim() //remove all space if there
+            val inputLength =edtLength.text.toString().trim() //Trim() remove all space if there
             val inputWidth = edtWidth.text.toString().trim()
             val inputHeight =edtHeight.text.toString().trim()
 
