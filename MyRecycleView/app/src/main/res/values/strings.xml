@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MyRecycleView</string>
+    <string name="heroes_name">Nama Pahlawan</string>
+    <string name="detail">Tan Malaka atau Ibrahim gelar Datuk Sutan Malaka (lahir di Nagari Pandam Gadang, Suliki, Lima Puluh Kota, Sumatera Barat, 2 Juni 1897 – meninggal di Desa Selopanggung, Kediri, Jawa Timur, 21 Februari 1949 pada umur 51 tahun) adalah seorang pembela kemerdekaan Indonesia, tokoh Partai Komunis Indonesia, juga pendiri Partai Murba, dan merupakan salah satu Pahlawan Nasional Indonesia. </string>
+    <string name="card_view">Card View</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
+</resources>
