@@ -37,14 +37,28 @@ object HeroesData {
         R.drawable.supomo,
         R.drawable.tan_malaka)
 
+    private val heroImagesLink = arrayOf(
+            "res/drawable/ahmad_dahlan",
+            "res/drawable/ahmad_yani",
+            "res/drawable/bung_tomo",
+            "res/drawable/gatot_subroto",
+            "res/drawable/ki_hadjar_dewantara",
+            "res/drawable/mohammad_hatta",
+            "res/drawable/sudirman",
+            "res/drawable/sukarno",
+            "res/drawable/supomo",
+            "res/drawable/tan_malaka"
+    )
+
     val listData: ArrayList<Hero>
         get() {
             val list = arrayListOf<Hero>()
             for (position in heroNames.indices) {
-                val hero = Hero("","",0)
+                val hero = Hero("","",0,"")
                 hero.name = heroNames[position]
                 hero.detail = heroDetails[position]
                 hero.photo = heroesImages[position]
+                hero.imageLink = heroImagesLink[position]
                 list.add(hero)
             }
             return list
