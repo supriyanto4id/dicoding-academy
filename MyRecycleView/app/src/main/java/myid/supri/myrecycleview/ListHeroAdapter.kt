@@ -37,13 +37,17 @@ class ListHeroAdapter(private val listHero: ArrayList<Hero>): RecyclerView.Adapt
 
         val image   =hero.photo
         holder.itemView.setOnClickListener{
-            Toast.makeText(holder.itemView.context,image, Toast.LENGTH_LONG).show()
+            //Toast.makeText(holder.itemView.context,image, Toast.LENGTH_LONG).show()
             onItemClickCallback.onItemClicked(listHero[holder.adapterPosition])
-            val sendDataHero = Intent(holder.itemView.context,DetailHeroActivity::class.java)
-            sendDataHero.putExtra(DetailHeroActivity.EXTRA_NAME,hero.name)
-            sendDataHero.putExtra(DetailHeroActivity.EXTRA_DESC,hero.detail)
-            sendDataHero.putExtra(DetailHeroActivity.EXTRA_IMG,hero.imageLink)
-           holder.itemView.context.startActivity(sendDataHero)
+//            val sendDataHero = Intent(holder.itemView.context,DetailHeroActivity::class.java)
+//            sendDataHero.putExtra(DetailHeroActivity.EXTRA_NAME,hero.name)
+//            sendDataHero.putExtra(DetailHeroActivity.EXTRA_DESC,hero.detail)
+//            sendDataHero.putExtra(DetailHeroActivity.EXTRA_IMG,hero.imageLink)
+
+            val moveDataObject = Intent(holder.itemView.context,DetailHeroActivity::class.java)
+            moveDataObject.putExtra(DetailHeroActivity.EXTRA_HERO,hero)
+
+           holder.itemView.context.startActivity(moveDataObject)
         }
     }
 

@@ -1,5 +1,6 @@
 package myid.supri.myrecycleview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,6 +16,7 @@ class DetailHeroActivity : AppCompatActivity() {
         const val EXTRA_NAME="extra_name"
         const val EXTRA_DESC ="extra_desc"
         const val EXTRA_IMG ="extra_img"
+        const val EXTRA_HERO ="extra_hero"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,17 +26,21 @@ class DetailHeroActivity : AppCompatActivity() {
         val dataDesc:TextView=findViewById(R.id.desription_hero)
        val dataImg: ImageView=findViewById(R.id.img_hero)
 
-        val name =intent.getStringExtra(EXTRA_NAME)
-        val desc=intent.getStringExtra(EXTRA_DESC)
-        val img =intent.getStringExtra(EXTRA_IMG)
+//        val name =intent.getStringExtra(EXTRA_NAME)
+//        val desc=intent.getStringExtra(EXTRA_DESC)
+//        val img =intent.getStringExtra(EXTRA_IMG)
+        val hero = intent.getParcelableExtra<Hero>(EXTRA_HERO) as Hero
 
-        dataName.text =name+img
-        dataDesc.text =desc
+        dataName.text =hero.name
+        dataDesc.text =hero.detail
 
         Glide.with(this)
-            .load(img)
+            .load(hero.photo)
             .apply(RequestOptions().override(350,350))
             .into(dataImg)
+
+        supportActionBar?.title = hero.name
+
 
     }
 }

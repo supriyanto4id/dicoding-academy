@@ -14,5 +14,9 @@
         android:title="@string/card_view"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/select_number"
+        android:title="Pilih Angka"
+        app:showAsAction="never"/>
 
 </menu>

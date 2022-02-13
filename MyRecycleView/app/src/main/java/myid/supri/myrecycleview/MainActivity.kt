@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +20,17 @@ class MainActivity : AppCompatActivity() {
     lateinit var rvHeroes :RecyclerView
     private var list:ArrayList<Hero> = arrayListOf()
 
+    lateinit var tvResult :String
+
+    private val resultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ){result->
+        if (result.resultCode == MoveWithResulthActivity.RESULT_CODE && result.data !=null){
+            val selectedValue = result.data?.getIntExtra(MoveWithResulthActivity.EXTRA_SELECTED_VALUE, 0)
+            tvResult="$selectedValue"
+        }
+        Toast.makeText(this,tvResult, Toast.LENGTH_LONG).show()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -53,6 +67,12 @@ class MainActivity : AppCompatActivity() {
             R.id.action_cardView -> {
                 showRecyclerCardView()
                 setActionBarTitle("Mode Card View ")
+            }
+            R.id.select_number->{
+                val selectNumberIntent = Intent(this,MoveWithResulthActivity::class.java)
+                resultLauncher.launch(selectNumberIntent)
+
+
             }
         }
     }
