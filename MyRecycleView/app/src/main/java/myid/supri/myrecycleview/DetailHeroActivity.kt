@@ -36,7 +36,7 @@ class DetailHeroActivity : AppCompatActivity() {
 
         Glide.with(this)
             .load(hero.photo)
-            .apply(RequestOptions().override(350,350))
+            .circleCrop()
             .into(dataImg)
 
         supportActionBar?.title = hero.name

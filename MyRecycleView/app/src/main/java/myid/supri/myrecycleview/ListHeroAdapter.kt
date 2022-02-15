@@ -31,7 +31,8 @@ class ListHeroAdapter(private val listHero: ArrayList<Hero>): RecyclerView.Adapt
 
         Glide.with(holder.itemView.context)
             .load(hero.photo)
-            .apply(RequestOptions().override(55,55))
+            //.apply(RequestOptions().override(55,55))
+                .circleCrop()
             .into(holder.IvImgPhoto)
         holder.tvName.text = hero.name
 
